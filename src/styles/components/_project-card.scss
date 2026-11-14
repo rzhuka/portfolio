@@ -1,0 +1,106 @@
+@use "../abstracts" as *;
+
+.project-list {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  &__cell {
+    height: 100%;
+  }
+}
+
+.project-card {
+  @include glass(10px);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 22px;
+  transition: transform 0.4s $ease, border-color 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(143, 168, 255, 0.16), transparent 60%);
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(143, 168, 255, 0.45);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  > * {
+    position: relative;
+  }
+
+  &__index {
+    @include mono;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+
+  &__name {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  &__description {
+    margin-bottom: 18px;
+    color: var(--muted);
+  }
+
+  &__highlights {
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+    @include dash-list;
+
+    li {
+      color: #c9cee0;
+    }
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+
+    li {
+      @include mono;
+      padding: 3px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 20px;
+    margin-top: 18px;
+
+    a {
+      color: var(--accent);
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--accent-3);
+      }
+    }
+  }
+}

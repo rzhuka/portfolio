@@ -1,0 +1,11 @@
+export { Header } from "./Header/Header";
+export { Hero } from "./Hero/Hero";
+export { ProjectList } from "./ProjectList/ProjectList";
+export { ExperienceSection } from "./ExperienceSection/ExperienceSection";
+export { SkillsSection } from "./SkillsSection/SkillsSection";
+export { EducationSection } from "./EducationSection/EducationSection";
+export { ContactSection } from "./ContactSection/ContactSection";
+export { Footer } from "./Footer/Footer";
+export { ScrollProgress } from "./ScrollProgress/ScrollProgress";
+export { CursorGlow } from "./CursorGlow/CursorGlow";
+export { TechMarquee } from "./TechMarquee/TechMarquee";

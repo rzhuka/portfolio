@@ -1,0 +1,42 @@
+@use "variables" as *;
+
+@mixin below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin glass($blur: 10px) {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  backdrop-filter: blur($blur);
+}
+
+@mixin gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin mono {
+  font-family: var(--font-mono), monospace;
+}
+
+// Small gradient dash used as a list marker.
+@mixin dash-list($pad: 18px) {
+  li {
+    position: relative;
+    padding: 0 0 6px $pad;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.75em;
+      width: 8px;
+      height: 2px;
+      background: var(--gradient);
+    }
+  }
+}

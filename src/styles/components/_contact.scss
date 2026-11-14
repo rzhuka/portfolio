@@ -1,0 +1,53 @@
+@use "../abstracts" as *;
+
+.contact {
+  &__mail {
+    @include gradient-text;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 32px;
+    padding-bottom: 6px;
+    word-break: break-all;
+    font-family: var(--font-display), sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 6vw, 3.6rem);
+    letter-spacing: -0.02em;
+    background-size: 200% auto;
+    transition: background-position 0.6s $ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--gradient);
+      transform-origin: left;
+      transform: scaleX(0.3);
+      transition: transform 0.5s $ease;
+    }
+
+    &:hover {
+      background-position: 100% center;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 24px;
+
+    a {
+      color: var(--muted);
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use "../abstracts" as *;
+
+.site-header {
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--gutter);
+  pointer-events: none;
+
+  &__bar {
+    @include glass(16px);
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: min(100%, 980px);
+    padding: 8px 10px 8px 24px;
+    border-radius: 999px;
+    background: rgba(12, 16, 30, 0.6);
+  }
+
+  &__brand {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &__link {
+    position: relative;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    color: var(--muted);
+    transition: color 0.2s;
+
+    &:hover,
+    &--active {
+      color: var(--text);
+    }
+
+    @include below($bp-md) {
+      display: none;
+    }
+  }
+
+  &__pill {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  &__label {
+    position: relative;
+  }
+
+  &__cta {
+    margin-left: 8px;
+
+    @include below($bp-md) {
+      margin-left: 0;
+    }
+  }
+}
